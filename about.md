@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Student, likes to do things relating to computers.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I don't have any bragging rights. maybe later.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[@surepyw](https://twitter.com/surepyw)
