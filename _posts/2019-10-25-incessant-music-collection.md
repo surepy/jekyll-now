@@ -16,3 +16,4 @@ will be updated constantly when i find new ones
 | 2:11:22 | [Touhou Progressive House & Trance Mix 6](http://www.mediafire.com/file/5nr3cxnn5jrjob9/Novy_-_Touhou_Prog_House_%26_Trance_Mix_06.zip) | mp3 | 180 MB |
 | 1:30:38 | [Touhou Progressive House & Trance Mix 7](http://www.mediafire.com/file/wpt2p035qy6hfz2/Novy_-_Touhou_Prog_House_%2526_Trance_Mix_07.zip/file) | mp3 | 124 MB |
 | 1:28:46 | [Masters of Hardcore Mayhem - Re-Style vs. Crypton \| Episode #003](https://mastersofhardcoremayhem.libsyn.com/masters-of-hardcore-mayhem-re-style-vs-crypton-episode-003) | mp3 | 203 MB |
+| 44:42 | [S3RL Always Presents...](https://djs3rl.com/shop/S3RL-Always-Presents) | mp3 | 102MB |
