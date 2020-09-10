@@ -1,18 +1,15 @@
 ---
 layout: post
 title: (Draft) My ArchLinux and LineageOS 13.0 building Experience
-excerpt: Trying to Build android for the fiftieth time 
 ---
-
-TODO: re-find and credit people that i found answers from.
 
 While Covid19, Distance learning and stuff are happening, I have decided to take a jab at the android building thing again. 
 
-This time hoping for success as I built more experience over the years. So far it's not going so well.
+This time I thought I had a better chance of success because of the experience I built over the years. So far it's not going so well.
 
-because previously I used xubuntu16.04 all the build tools were relativly legacy, and there were a lot of guides i can quicky google and would work.
+Previously, the source code was functional in xubuntu 16.04. with no modifications everything just compiled out of the box with some dependencies.
 
-... If It were that simple. I wouldn't be writing this article. here's my experience so far. let's get started.
+... If It were that simple. I wouldn't be writing this article. here's my experience so far and what I have done so far. let's get started.
 
 ## Creating an environment for build.
 
@@ -42,44 +39,46 @@ They can be installed with the lineageos-devel metapackage.
 
 **make sure you define JAVA_HOME environment variable! build will complain!**
 
-now in a perfect world, or you're building latest, you're done. But we're not doing that and the world is nowhere near perfect, it's just too flawed.
+now in a perfect world- or you're building latest, you're done. 
 
-install either ``java-8-openjdk`` or ``java-7-openjdk`` and make sure to complain that you're using java7 or java8 in 2020s. I know. It's unbelievable.
+But we're not doing that- and the world is nowhere near perfect, it's just too flawed.
 
-familarize yourself with [archlinux-java](https://wiki.archlinux.org/index.php/Java) too.
+Install either ``java-8-openjdk`` or ``java-7-openjdk`` and make sure to complain that you're using java7 or java8 in 2020s. I know. It's unbelievable.
+
+Familarize yourself with [archlinux-java](https://wiki.archlinux.org/index.php/Java) too.
 
 ### Because Everything _MUST_ be python2.... right?
 
 Every build script seems to be assuming that the command ``python`` would return python2, arch doesn't do that.
 
-either create a directory you can use as a PATH, then create a symlink of python2 named "python" to that directory, and then making sure it runs python2 all the time:
+Either create a directory you can use as a PATH, then create a symlink of python2 named "python" to that directory, and then making sure it runs python2 all the time:
 
 ``ln -s /usr/bin/python2 ~/android-path/python``
 
-or you can do yourself a favor and run these two commands below before building; and never have to worry about it.
+Or you can do yourself a favor and run these two commands below before building; and never have to worry about it.
 
 ```
 virtualenv2 venv
 source venv/bin/activate
 ```
 
-and now move onto: 
+And now move onto: 
 
 ## Downloading the Source code
 
 Downloading the source code is... well. just downloading. 
 
-go make a working directory,
+Go make a working directory,
 
-``repo init -u git://github.com/LineageOS/android.git -b lineage-13.0``
+``repo init -u git://github.com/LineageOS/android.git -b lineage-13.0`` and ``repo sync -j16``
 
-and ``repo sync -j16``
+Then go watch youtube... or something.
 
-then go watch youtube... or something.
+For this and next part you're about to spend countless hours fixing and debugging; 
 
-for this and next part you're about to spend countless hours; so grab a nice long playlist of song(s) or a megamix.
+So grab a nice long playlist of song(s) or a megamix.
 
-here are some song recommendations that I can think of right now.
+Here are some song recommendations that I can think of right now.
 
 [Taishi - Reverie for Another Sphere](https://youtu.be/5M-CfgAG2n4)
 
@@ -93,13 +92,34 @@ here are some song recommendations that I can think of right now.
 
 [Novy(Amplified Sound)'s Touhou Progressive House & Trance Mixes,](https://www.youtube.com/playlist?list=PLqGzPZvdSk1OKWSj2d6nTPSJSCjQrUn6j)
 
-As much as I would like to dump every every song I love here, let's move on to the actual topic in hand.
+I would like to dump every every song I love here; But let's move on to the actual topic in hand.
 
 ## Building the code....?
 
+### In an alternate universe...
+
+alright, let's see,
+
+I'm going to run ``source build/envsetup.sh``, and use ``lunch`` to use my device, wait for it to finish executing.
+
+then ``make -j16`` and I'll have my images! 
+
+The only thing I have to worry about is fixing the image to actually be compatible with my phone and boot!
+
+
+
+
+
+
+
+
 **Bumpy road! skechy fixes ahead!**
 
-Oh jeez.. here we go.
+_... or so I thought._
+
+Why would something relating to computers _just work_ anyways? silly me.
+
+Here's some issues I ran into, and the fixes I used for them.
 
 
 ### nl_intern_locale_data: assertion 'cnt < (sizeof (_nl_value_type_lc_time) / sizeof (_nl_value_type_lc_time[0]))' failed.
@@ -127,7 +147,7 @@ This is an odd fix, device trees with the ``PRODUCT_NAME`` that starts with aosp
 
 I can't figure out why, but simply re-naming ``PRODUCT_NAME`` to cm_devicename fixes it.
 
-for example aosp_mako would be cm_mako.
+For example: ``aosp_mako`` would be ``cm_mako``.
 
 ## ERROR: Communication error with Jack server (2)
 
@@ -135,43 +155,48 @@ with: ``curl: option --no-proxy: used '--no-' for option that isn't a boolean``
 
 The best solution to an issue is usually avoiding it alltogether.
 
-yea, just don't use jack. [it's deprecated](https://android-developers.googleblog.com/2017/03/future-of-java-8-language-feature.html).
-and I don't even know why enabling them is the default.
+What I mean is- Yes, just don't use jack. [it's deprecated, too](https://android-developers.googleblog.com/2017/03/future-of-java-8-language-feature.html).
+And I don't even know why enabling them is the default.
 
-use ``make ANDROID_COMPILE_WITH_JACK:=false``.
+Use ``make ANDROID_COMPILE_WITH_JACK:=false``.
+
+Unrelated Note: I heard Jack In The Box is "okay."
 
 ### No rule to make target 'dtbToolCM'
 
 You don't have qcom_common and you're building a qcom device.
 
-add ``LineageOS/android_device_qcom_common`` to ``.repo/local_manifests/roomservice.xml``. like below.
+Add ``LineageOS/android_device_qcom_common`` to ``.repo/local_manifests/roomservice.xml`` like example below.
 
 ```xml
 <project path="device/qcom/common" remote="github" name="LineageOS/android_device_qcom_common"/>
 ```
 
-### 'multiple definition of yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
+### 'multiple definition of yylloc'; scripts/dtc/dtc-lexer.lex.o: first defined here
 
 You ran into a:
 
-```
+```bash
 make[4]: *** [scripts/Makefile.host:100: scripts/dtc/dtc] Error 1
 /usr/bin/ld: scripts/dtc/dtc-parser.tab.o: multiple definition of 'yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
 ```
 
 Oh no! It's kernel patching time!
 
-because gcc10.2, which is the version I'm on- your experience may vary.
-
-anyways, gcc 10 will default to ``-fno-common`` and that- will fail at the 
+This happens because GCC 10 will default to ``-fno-common`` and that will fail at the 
 ```c
 extern YYLTYPE yylloc;
 ```
 definition at files ``scripts/dtc/dtc-lexer.lex.c_shipped`` and ``scripts/dtc/dtc-lexer.l``
 
-[simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
+[Simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
 
 
 ### error: cannot access OkCacheContainer
 
-lol to fix
+TODO: FIX
+
+
+## Conclusion
+
+This was my first long-sized article ever. It's really bad but I had fun doing it- and I should do stuff like these more.
