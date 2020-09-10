@@ -119,6 +119,7 @@ Here's some issues I ran into, and the fixes I used for them.
 
 **Bumpy road! skechy fixes ahead!**
 
+---
 #### nl_intern_locale_data: assertion 'cnt < (sizeof (_nl_value_type_lc_time) / sizeof (_nl_value_type_lc_time[0]))' failed.
 
 set env LC_ALL to C, has never failed me and seems to be the solution.
@@ -192,6 +193,8 @@ definition at files ``scripts/dtc/dtc-lexer.lex.c_shipped`` and ``scripts/dtc/dt
 #### error: cannot access OkCacheContainer
 
 TODO: FIX
+
+---
 
 
 ## Conclusion
