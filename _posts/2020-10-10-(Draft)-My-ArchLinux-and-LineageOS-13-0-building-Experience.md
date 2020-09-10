@@ -1,6 +1,7 @@
 ---
 layout: post
 title: (Draft) My ArchLinux and LineageOS 13.0 building Experience
+excerpt: Trying to Build android for the fiftieth time 
 ---
 
 TODO: re-find and credit people that i found answers from.
@@ -14,6 +15,8 @@ because previously I used xubuntu16.04 all the build tools were relativly legacy
 ... If It were that simple. I wouldn't be writing this article. here's my experience so far. let's get started.
 
 ## Creating an environment for build.
+
+**Recommended!:** you can just use [this script by akhilnarang](https://github.com/akhilnarang/scripts/blob/master/setup/arch-manjaro.sh)
 
 This is [pretty well documented in the arch wiki.](https://wiki.archlinux.org/index.php/Android#Required_packages) enable mulilib and follow the "build any version of Android" instructions.
 
@@ -35,17 +38,15 @@ Additionally, LineageOS requires the following packages: xml2, lzop, pngcrush, i
 They can be installed with the lineageos-devel metapackage.
 ```
 
-**Recommended!:** alternatively, you can just use [this script by akhilnarang](https://github.com/akhilnarang/scripts/blob/master/setup/arch-manjaro.sh)
-
 ### What version of java was latest again?
+
+**make sure you define JAVA_HOME environment variable! build will complain!**
 
 now in a perfect world, or you're building latest, you're done. But we're not doing that and the world is nowhere near perfect, it's just too flawed.
 
 install either ``java-8-openjdk`` or ``java-7-openjdk`` and make sure to complain that you're using java7 or java8 in 2020s. I know. It's unbelievable.
 
 familarize yourself with [archlinux-java](https://wiki.archlinux.org/index.php/Java) too.
-
-**make sure you define JAVA_HOME environment variable too! build will complain!**
 
 ### Because Everything _MUST_ be python2.... right?
 
@@ -55,7 +56,7 @@ either create a directory you can use as a PATH, then create a symlink of python
 
 ``ln -s /usr/bin/python2 ~/android-path/python``
 
-or you can do yourself a favor and run these two commands before building and never have to worry about it.
+or you can do yourself a favor and run these two commands below before building; and never have to worry about it.
 
 ```
 virtualenv2 venv
@@ -96,9 +97,10 @@ As much as I would like to dump every every song I love here, let's move on to t
 
 ## Building the code....?
 
+**Bumpy road! skechy fixes ahead!**
+
 Oh jeez.. here we go.
 
-Bumpy road and skechy fixes ahead!
 
 ### nl_intern_locale_data: assertion 'cnt < (sizeof (_nl_value_type_lc_time) / sizeof (_nl_value_type_lc_time[0]))' failed.
 
@@ -117,6 +119,8 @@ virtualenv2 venv
 source venv/bin/activate
 ```
 
+run these two commands before building!
+
 ### make: *** No rule to make target '/out/target/common/obj/JAVA_LIBRARIES/ambientsdk_intermediates/aar/classes.jar', needed by '/out/target/common/obj/APPS/messaging_intermediates/AndroidManifest.xml'. Stop.
 
 This is an odd fix, device trees with the ``PRODUCT_NAME`` that starts with aosp_ seem to have this issue.
@@ -131,7 +135,8 @@ with: ``curl: option --no-proxy: used '--no-' for option that isn't a boolean``
 
 The best solution to an issue is usually avoiding it alltogether.
 
-yea, just don't use jack. [it's deprecated](https://android-developers.googleblog.com/2017/03/future-of-java-8-language-feature.html), and I don't even know why enabling them is the default.
+yea, just don't use jack. [it's deprecated](https://android-developers.googleblog.com/2017/03/future-of-java-8-language-feature.html).
+and I don't even know why enabling them is the default.
 
 use ``make ANDROID_COMPILE_WITH_JACK:=false``.
 
@@ -145,13 +150,20 @@ add ``LineageOS/android_device_qcom_common`` to ``.repo/local_manifests/roomserv
 <project path="device/qcom/common" remote="github" name="LineageOS/android_device_qcom_common"/>
 ```
 
-### /usr/bin/ld: scripts/dtc/dtc-parser.tab.o: multiple definition of yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
+### 'multiple definition of yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
+
+You ran into a:
+
+```
+make[4]: *** [scripts/Makefile.host:100: scripts/dtc/dtc] Error 1
+/usr/bin/ld: scripts/dtc/dtc-parser.tab.o: multiple definition of 'yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
+```
 
 Oh no! It's kernel patching time!
 
 because gcc10.2, which is the version I'm on- your experience may vary.
 
-anyways, gcc 10 will default to ``-fno-common`` it will fail at the 
+anyways, gcc 10 will default to ``-fno-common`` and that- will fail at the 
 ```c
 extern YYLTYPE yylloc;
 ```
@@ -159,10 +171,6 @@ definition at files ``scripts/dtc/dtc-lexer.lex.c_shipped`` and ``scripts/dtc/dt
 
 [simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
 
-```
-make[4]: *** [scripts/Makefile.host:100: scripts/dtc/dtc] Error 1
-/usr/bin/ld: scripts/dtc/dtc-parser.tab.o: multiple definition of 'yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
-```
 
 ### error: cannot access OkCacheContainer
 
