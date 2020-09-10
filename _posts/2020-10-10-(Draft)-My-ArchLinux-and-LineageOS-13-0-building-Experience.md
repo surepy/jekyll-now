@@ -3,9 +3,11 @@ layout: post
 title: (Draft) My ArchLinux and LineageOS 13.0 building Experience
 ---
 
-While Covid19, Distance learning and stuff are happening, I have decided to take a jab at the android building thing again. 
+There are surprisingly less things I can do due these days due to COVID-19, social distancing and not wanting to play FPS games.
 
-This time I thought I had a better chance of success because of the experience I built over the years. So far it's not going so well.
+Because of that, I have decided to take a jab at the android building thing again. 
+
+This time I thought I had a better chance of success because of the experience I built over the years. So far.... it's not going so well.
 
 Previously, the source code was functional in xubuntu 16.04. with no modifications everything just compiled out of the box with some dependencies.
 
