@@ -190,7 +190,7 @@ definition at files ``scripts/dtc/dtc-lexer.lex.c_shipped`` and ``scripts/dtc/dt
 mark them as an extern
 
 ```c
-YYLTYPE yylloc;
+extern YYLTYPE yylloc;
 ```
 
 [or simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
