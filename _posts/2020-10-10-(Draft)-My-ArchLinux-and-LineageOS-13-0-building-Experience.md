@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Draft] My ArchLinux and LineageOS 13.0 building Experience
+title: (Draft) My ArchLinux and LineageOS 13.0 building Experience
 ---
 
 TODO: re-find and credit people that i found answers from.
