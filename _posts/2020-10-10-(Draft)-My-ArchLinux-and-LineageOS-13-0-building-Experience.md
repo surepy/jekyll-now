@@ -96,7 +96,7 @@ I would like to dump every every song I love here; But let's move on to the actu
 
 ## Building the code....?
 
-### In an alternate universe...
+### Building in an alternate universe...
 
 alright, let's see,
 
@@ -107,13 +107,7 @@ then ``make -j16`` and I'll have my images!
 The only thing I have to worry about is fixing the image to actually be compatible with my phone and boot!
 
 
-
-
-
-
-
-
-**Bumpy road! skechy fixes ahead!**
+### Building in the reality.
 
 _... or so I thought._
 
@@ -121,14 +115,15 @@ Why would something relating to computers _just work_ anyways? silly me.
 
 Here's some issues I ran into, and the fixes I used for them.
 
+**Bumpy road! skechy fixes ahead!**
 
-### nl_intern_locale_data: assertion 'cnt < (sizeof (_nl_value_type_lc_time) / sizeof (_nl_value_type_lc_time[0]))' failed.
+#### nl_intern_locale_data: assertion 'cnt < (sizeof (_nl_value_type_lc_time) / sizeof (_nl_value_type_lc_time[0]))' failed.
 
 set env LC_ALL to C, has never failed me and seems to be the solution.
 
 ``export LC_ALL=C``
 
-### make: *** No rule to make target '/.txt', needed by '/out/target/common/obj/PACKAGING/checkpublicapi-cm-last-timestamp'. Stop.
+#### make: *** No rule to make target '/.txt', needed by '/out/target/common/obj/PACKAGING/checkpublicapi-cm-last-timestamp'. Stop.
 
 Probably something to do with assuming python2 but running python3; 
 
@@ -141,7 +136,7 @@ source venv/bin/activate
 
 run these two commands before building!
 
-### make: *** No rule to make target '/out/target/common/obj/JAVA_LIBRARIES/ambientsdk_intermediates/aar/classes.jar', needed by '/out/target/common/obj/APPS/messaging_intermediates/AndroidManifest.xml'. Stop.
+#### make: *** No rule to make target '/out/target/common/obj/JAVA_LIBRARIES/ambientsdk_intermediates/aar/classes.jar', needed by '/out/target/common/obj/APPS/messaging_intermediates/AndroidManifest.xml'. Stop.
 
 This is an odd fix, device trees with the ``PRODUCT_NAME`` that starts with aosp_ seem to have this issue.
 
@@ -149,7 +144,7 @@ I can't figure out why, but simply re-naming ``PRODUCT_NAME`` to cm_devicename f
 
 For example: ``aosp_mako`` would be ``cm_mako``.
 
-## ERROR: Communication error with Jack server (2)
+#### ERROR: Communication error with Jack server (2)
 
 with: ``curl: option --no-proxy: used '--no-' for option that isn't a boolean``
 
@@ -162,7 +157,7 @@ Use ``make ANDROID_COMPILE_WITH_JACK:=false``.
 
 Unrelated Note: I heard Jack In The Box is "okay."
 
-### No rule to make target 'dtbToolCM'
+#### No rule to make target 'dtbToolCM'
 
 You don't have qcom_common and you're building a qcom device.
 
@@ -172,7 +167,7 @@ Add ``LineageOS/android_device_qcom_common`` to ``.repo/local_manifests/roomserv
 <project path="device/qcom/common" remote="github" name="LineageOS/android_device_qcom_common"/>
 ```
 
-### 'multiple definition of yylloc'; scripts/dtc/dtc-lexer.lex.o: first defined here
+#### 'multiple definition of yylloc'; scripts/dtc/dtc-lexer.lex.o: first defined here
 
 You ran into a:
 
@@ -192,7 +187,7 @@ definition at files ``scripts/dtc/dtc-lexer.lex.c_shipped`` and ``scripts/dtc/dt
 [Simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
 
 
-### error: cannot access OkCacheContainer
+#### error: cannot access OkCacheContainer
 
 TODO: FIX
 
