@@ -174,7 +174,7 @@ Add ``LineageOS/android_device_qcom_common`` to ``.repo/local_manifests/roomserv
 
 You ran into a:
 
-```bash
+```
 make[4]: *** [scripts/Makefile.host:100: scripts/dtc/dtc] Error 1
 /usr/bin/ld: scripts/dtc/dtc-parser.tab.o: multiple definition of 'yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
 ```
@@ -183,19 +183,39 @@ Oh no! It's kernel patching time!
 
 This happens because GCC 10 will default to ``-fno-common`` and that will fail at the 
 ```c
-extern YYLTYPE yylloc;
+YYLTYPE yylloc;
 ```
 definition at files ``scripts/dtc/dtc-lexer.lex.c_shipped`` and ``scripts/dtc/dtc-lexer.l``
 
-[Simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
+mark them as an extern
 
+```c
+YYLTYPE yylloc;
+```
+
+[or simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
 
 #### error: cannot access OkCacheContainer
+```
+frameworks/base/packages/StatementService/src/com/android/statementservice/DirectStatementService.java:149: error: cannot access OkCacheContainer
+            mHttpResponseCache = HttpResponseCache.install(httpCacheDir, HTTP_CACHE_SIZE_IN_BYTES);                                                                                                               
+                                                  ^                                                                                                                                                               
+  class file for com.android.okhttp.OkCacheContainer not found                                                                                                                                                    
+1 error
+```
+[relating issue](https://issuetracker.google.com/issues/37130763)
 
-TODO: FIX
+[fix source](https://thealaskalinuxuser.wordpress.com/2017/05/16/yet-again-error-package-com-android-okhttp-does-not-exist/)
+
+This is caused by missing some package dependency. 
+
+edit ``LOCAL_JAVA_LIBRARIES`` variable in ``external/apache-http/Android.mk`` to be
+
+``LOCAL_JAVA_LIBRARIES := $(apache_http_java_libs) okhttp bouncycastle framework``
+
+
 
 ---
-
 
 ## Conclusion
 
