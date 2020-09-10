@@ -196,6 +196,9 @@ YYLTYPE yylloc;
 [or simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
 
 #### error: cannot access OkCacheContainer
+
+EDIT: this didn't work lol look into later
+
 ```
 frameworks/base/packages/StatementService/src/com/android/statementservice/DirectStatementService.java:149: error: cannot access OkCacheContainer
             mHttpResponseCache = HttpResponseCache.install(httpCacheDir, HTTP_CACHE_SIZE_IN_BYTES);                                                                                                               
@@ -209,7 +212,7 @@ frameworks/base/packages/StatementService/src/com/android/statementservice/Direc
 
 This is caused by missing some package dependency. 
 
-edit ``LOCAL_JAVA_LIBRARIES`` variable in ``external/apache-http/Android.mk`` to be
+edit ``LOCAL_JAVA_LIBRARIES`` variable in ``external/apache-http/Android.mk`` to be similar to
 
 ``LOCAL_JAVA_LIBRARIES := $(apache_http_java_libs) okhttp bouncycastle framework``
 
