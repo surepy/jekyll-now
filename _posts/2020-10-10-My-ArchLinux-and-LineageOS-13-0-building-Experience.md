@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Draft) My ArchLinux and LineageOS 13.0 building Experience
+title: My ArchLinux and LineageOS 13.0 building Experience
 ---
 
 There are surprisingly less things I can do due these days due to COVID-19, social distancing and not wanting to play FPS games.
@@ -108,7 +108,6 @@ then ``make -j16`` and I'll have my images!
 
 The only thing I have to worry about is fixing the image to actually be compatible with my phone and boot!
 
-
 ### Building in the reality.
 
 _... or so I thought._
@@ -138,6 +137,8 @@ source venv/bin/activate
 ```
 
 run these two commands before building!
+
+for extra mesure, try running ``make update-api`` too, worked for some people but not me.
 
 #### make: *** No rule to make target '/out/target/common/obj/JAVA_LIBRARIES/ambientsdk_intermediates/aar/classes.jar', needed by '/out/target/common/obj/APPS/messaging_intermediates/AndroidManifest.xml'. Stop.
 
@@ -193,11 +194,9 @@ mark them as an extern
 extern YYLTYPE yylloc;
 ```
 
-[or simply remove them, or comment them out.](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
+[or simply remove them, or comment them out. whatever works!](https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/273023)
 
 #### error: cannot access OkCacheContainer
-
-EDIT: this didn't work lol look into later
 
 ```
 frameworks/base/packages/StatementService/src/com/android/statementservice/DirectStatementService.java:149: error: cannot access OkCacheContainer
@@ -216,10 +215,27 @@ edit ``LOCAL_JAVA_LIBRARIES`` variable in ``external/apache-http/Android.mk`` to
 
 ``LOCAL_JAVA_LIBRARIES := $(apache_http_java_libs) okhttp bouncycastle framework``
 
-
+You may need to do this for more than 1 line.
 
 ---
+
+### So, are we done now?
+
+If you see 
+
+```#### make completed successfully (10:53 (mm:ss)) ####```
+
+Yes! ... sorta.
+
+now you have to go through the painful process of debugging your build, (unless you know for a fact that your device tree works.) good luck!
+
+I'll maybe write a follow up post on this in a later date.
 
 ## Conclusion
 
 This was my first long-sized article ever. It's really bad but I had fun doing it- and I should do stuff like these more.
+
+Your experience will vary a LOT from building android, to utter hell from a really nice experience or... your device is offically supported so you're fine.
+
+Someone probably has a docker image that removes all this headache in the first place for build- but I like it this way more.
+
