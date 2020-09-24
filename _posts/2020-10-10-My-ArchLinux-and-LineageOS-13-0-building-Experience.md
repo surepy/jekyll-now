@@ -239,3 +239,4 @@ Your experience will vary a LOT from building android, to utter hell from a real
 
 Someone probably has a docker image that removes all this headache in the first place for build- but I like it this way more.
 
+If you're reading this because you're also building: Good luck! hope I helped!
