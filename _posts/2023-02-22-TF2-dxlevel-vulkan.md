@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TF2: --dxlevel vulkan
+title: TF2\: --dxlevel vulkan
 ---
 
 it's 2023/2/17, and I was having a chat with "pony goon"
