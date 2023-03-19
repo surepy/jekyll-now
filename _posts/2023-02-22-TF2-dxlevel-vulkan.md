@@ -124,6 +124,7 @@ First the game refused to launch
 but through sheer power of restarting over and over again 
 
 > .py — 02/20/2023 2:48 AM
+> 
 > i got it to launch
 
 let's join a server!
@@ -152,16 +153,16 @@ Results?
 
 # Nailing the coffin 
 
-I decided to distribute this to few people I know in tf2; and trust.
+I decided to distribute this to few people I know and trust in tf2. One of the people I posted to was Fiona.
 
-fiona was one of them and was instantly curious on how i did this, and took some benchmaks for me as i am not qualified.
+She kindly and took some benchmaks for me, which was awesome as my tests weren't esactly scientific.
 
 ![image](https://user-images.githubusercontent.com/24486494/226158682-c447716b-2c94-4474-bcfa-de0304b77775.png)
 
-and a legendary chart was born
+and then, a legendary chart was born that day.
 
 ![image (1)](https://user-images.githubusercontent.com/24486494/226158630-d8eabd19-99ea-49ff-9dd3-1ea4fb739b8b.png)
 
 # Con??clusion??? 
 
-Linux API hackery makes tf2 run much better, and personally I recommend you using it.
+Linux API hackery makes windows applications- like tf2 run much better, and personally I recommend you using it.
