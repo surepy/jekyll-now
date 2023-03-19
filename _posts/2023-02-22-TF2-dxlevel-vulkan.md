@@ -3,7 +3,7 @@ layout: post
 title: "TF2: -dxlevel vulkan"
 ---
 
-# Introduction
+## Introduction
 
 **WARN: this comes with a VAC risk, VERY unlikly in my opinion but just keep that in mind.**
 
@@ -11,7 +11,7 @@ I decided one day to add dxvk and d3d8to9 to tf2, and found out that it comes wi
 
 This is a blog post on how I found it out, and thought that this experience was funny enough not to write about.
 
-# Why did you do this
+## Why did you do this
 
 It was 2023/2/17, and I was having a chat with "pony goon"- just some tf2/sniper gameplay related chat.
 
@@ -45,7 +45,7 @@ What's this?
 
 and then it hit me.
 
-# The cooking
+## The cooking
 
 ![image](https://user-images.githubusercontent.com/24486494/220642103-ba887317-9c7d-4ecd-b32f-990a4ac00950.png)
 
@@ -135,7 +135,7 @@ let's join a server!
 
 ![image](https://user-images.githubusercontent.com/24486494/226156917-0de9332a-da11-4bc7-95c5-5eb9ecc02c21.png)
 
-# Okay, what if I'm wrong?
+## Okay, what if I'm wrong?
 
 From then I thought to myself: What if it's just a dumb placebo? What if I just look dumb right now?
 
@@ -151,7 +151,7 @@ Results?
 
 ![20230220_042353](https://user-images.githubusercontent.com/24486494/226158495-4a347bf4-ec51-4b0e-aadd-6bedaaa6d722.jpg)
 
-# Nailing the coffin 
+## Nailing the coffin 
 
 I decided to distribute this to few people I know and trust in tf2. One of the people I posted to was Fiona.
 
@@ -163,6 +163,6 @@ and then, a legendary chart was born that day.
 
 ![image (1)](https://user-images.githubusercontent.com/24486494/226158630-d8eabd19-99ea-49ff-9dd3-1ea4fb739b8b.png)
 
-# Con??clusion??? 
+## Con??clusion??? 
 
 Linux API hackery makes windows applications- like tf2 run much better, and personally I recommend you using it.
