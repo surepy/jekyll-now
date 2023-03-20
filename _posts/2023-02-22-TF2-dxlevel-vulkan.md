@@ -17,7 +17,7 @@ It was 2023/2/17, and I was having a chat with "pony goon"- just some tf2/sniper
 
 ![image](https://user-images.githubusercontent.com/24486494/220641288-80b783ee-2d3b-40e3-8b05-e24e00cbb7cb.png)
 
-~~blame mastercommfig wiki for suggesting me dx10 idk~~
+~~blame mastercomfig wiki for suggesting me dx10 idk~~
 
 they suggested me to use dx8 for better performance and due to the sniper scope fish eye effect.
 
