@@ -151,18 +151,20 @@ Results?
 
 ![20230220_042353](https://user-images.githubusercontent.com/24486494/226158495-4a347bf4-ec51-4b0e-aadd-6bedaaa6d722.jpg)
 
-## Nailing the coffin 
+## Putting a nail the coffin 
 
 I decided to distribute this to few people I know and trust in tf2. One of the people I posted to was Fiona.
 
-She kindly and took some benchmaks for me, which was awesome as my tests weren't esactly scientific.
+She kindly and took some benchmaks for me, which was awesome as my tests weren't exactly scientific.
 
 ![image](https://user-images.githubusercontent.com/24486494/226158682-c447716b-2c94-4474-bcfa-de0304b77775.png)
 
-and then, a legendary chart was born that day.
+she returned with this legendary graph.
 
 ![image (1)](https://user-images.githubusercontent.com/24486494/226158630-d8eabd19-99ea-49ff-9dd3-1ea4fb739b8b.png)
 
 ## Con??clusion??? 
 
-Linux API hackery makes windows applications- like tf2 run much better, and personally I recommend you using it.
+Linux API hackery does make windows applications- like tf2 run much better.
+
+I'm probably gonna be using this to as much games I can, for extra frames.
