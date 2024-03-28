@@ -1,4 +1,4 @@
-![output](https://github.com/surepy/surepy.github.io/assets/24486494/9553899c-b809-4e6f-8885-34393dff441a)---
+---
 layout: post
 title: Flashing Latest Merlin on Aquila X2 with H32 chip
 ---
