@@ -3,8 +3,6 @@ layout: post
 title: "TF2: -dxlevel vulkan"
 ---
 
-## Introduction
-
 **WARN: this comes with a VAC risk, VERY unlikly in my opinion but just keep that in mind.**
 
 I decided one day to add dxvk and d3d8to9 to tf2, and found out that it comes with at least a **25%** performance gain.
