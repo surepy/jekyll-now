@@ -68,7 +68,7 @@ Install Visual Studio Code, with Auto build Marlin extension. _(This should also
 
 ![Auto build Marlin](https://github.com/surepy/surepy.github.io/assets/24486494/59008e09-2a4e-4014-80da-4ee2cd2661fb)
 
-Also download Marlin's source code by either cloning https://github.com/MarlinFirmware/Marlin.git, or download it from https://marlinfw.org/meta/download/
+Also download Marlin's source code by either cloning [https://github.com/MarlinFirmware/Marlin.git](https://github.com/MarlinFirmware/Marlin.git), or download it from [https://marlinfw.org/meta/download/](https://marlinfw.org/meta/download/)
 
 Make sure you either clone or download the ``bugfix-2.1.x`` verion/branch!
 
@@ -77,7 +77,7 @@ _I named it marlin2 because I already had a marlin folder, just name it marlin._
 
 ***NOTE: This will change. if H32 is in the stable release, use that one instead. (at the moment H32 is not in the stable release) I will try to edit this portion when that happens.***
 
-now open the folder that you just downloaded or cloned, make sure you're in the directory where platformio.ini exists
+now open the folder that you just downloaded or cloned, make sure you're in the directory where ``platformio.ini`` exists
 
 ![platformio.ini](https://github.com/surepy/surepy.github.io/assets/24486494/51623600-af88-43ff-b951-447f9e8f8ad8)
 
@@ -85,8 +85,7 @@ now open the folder that you just downloaded or cloned, make sure you're in the 
 
 ![default auto build configuration](https://github.com/surepy/surepy.github.io/assets/24486494/90956c00-3a27-419b-b858-33db7d592ffb)
 
-You should be greeted with this screen. as you can see "RAMPS 14 EFB" is probably not what we want, and our archtecture is probably not "ATmega2560"
-
+You should be greeted with this screen. as you can see "RAMPS 14 EFB" is probably not what we want, and our archtecture is probably not "ATmega2560"  
 _Hint: it's not_
 
 so let's go configuring.
@@ -101,11 +100,11 @@ Now we need to modify``Configuration.h`` and ``Configuration_adv.h`` for actaull
 Instead of trying to configure it ourselves and probably messing up, We're gonna use Sample Configurations (provided by shadow578).
 
 He uploads his sample configurations in his github issues, linked below  
-\>> https://github.com/shadow578/Marlin-H32/issues/38 << 
+\>> [https://github.com/shadow578/Marlin-H32/issues/38](https://github.com/shadow578/Marlin-H32/issues/38) << 
 
 For this guide, we will be using this specific configuration-  
 ![nov 11 aquila config](https://github.com/surepy/surepy.github.io/assets/24486494/151ddd87-dca5-4dfa-a0a1-c0c89e853599)  
-but even if a new configuration is released the guide should be relatively same.
+but even if a new configuration is released the guide should be relatively the same.
 
 Download the zip file and you will be greeted with these two files that we happened to need.
 
@@ -144,7 +143,7 @@ and it should build!
 
 ![Successful build](https://github.com/surepy/surepy.github.io/assets/24486494/4cb86059-55ad-4254-912f-9a67dc4ee5bd)
 
-Congratulations! now you have a latest Marlin build for your X2!
+Congratulations! you now  have a latest Marlin build for your X2!
 
 ## Display Firmware
 
@@ -156,9 +155,8 @@ The X2's display is actually the same as Ender-3 V2's screen, named _"DWIN displ
 
 _you can see that they are literally the same._
 
-So we just grab the LCD files from the [Example Configuration of Ender-3 V2](https://github.com/MarlinFirmware/Configurations/tree/bugfix-2.1.x/config/examples/Creality/Ender-3%20V2)
-
-- aka ``DWIN_SET.tar.gz`` and you're done!
+So we just grab the LCD files from the [Example Configuration of Ender-3 V2](https://github.com/MarlinFirmware/Configurations/tree/bugfix-2.1.x/config/examples/Creality/Ender-3%20V2)  
+\- aka ``DWIN_SET.tar.gz`` and you're done!
 
 ## Customizing
 
@@ -177,14 +175,13 @@ _I've also reverted this so M92 gets included_
 
 # Flashing
 
-Flashing process is the same with all the other firmwares.
+Flashing is the same with all the other firmwares for the x2, so I'm just gonna brush over it.
 
-grab a random sdcard, and format it to fat32
+Grab a random sdcard, and format it to fat32
 
 ![fat32](https://github.com/surepy/surepy.github.io/assets/24486494/32bb35bf-1eb4-4b54-ac32-df6cc9dd6616)
 
-extract ``DWIN_SET`` folder to sdcard
-
+extract ``DWIN_SET`` folder to sdcard  
 and also firmware.bin from ``<merlin-folder>/.pio/build/HC32F460C_aquila_101/firmware.bin`` to sdcard, in a folder called ``firmware``.
 
 ![directory structure](https://github.com/surepy/surepy.github.io/assets/24486494/947a960e-29b5-4ae0-aaa2-3c8470a9e87e)  
@@ -202,7 +199,7 @@ I hope you get to make cool stuff with this!
 
 _Thank you to shadow578 (aka Chris) for making this possible._
 
-# Refrences/Links
+# References/Links
 - [Alex's Marlin-H32](https://github.com/alexqzd/Marlin-H32/releases)
 - [Marlin for the Voxlab Aquila X2 (H32) - u/shadow_578](https://www.reddit.com/r/VoxelabAquila/comments/11nqfqi/marlin_for_the_voxlab_aquila_x2_h32/)
   - [Marlin-H32](https://github.com/shadow578/Marlin-H32)
