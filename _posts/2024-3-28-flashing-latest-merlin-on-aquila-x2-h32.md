@@ -1,4 +1,4 @@
----
+![output](https://github.com/surepy/surepy.github.io/assets/24486494/9553899c-b809-4e6f-8885-34393dff441a)---
 layout: post
 title: Flashing Latest Merlin on Aquila X2 with H32 chip
 ---
@@ -194,7 +194,7 @@ flash on your display and motherboard and you're good!
 
 # Happy Printing!
 
-![marlin boot screen on h32](https://github.com/surepy/surepy.github.io/assets/24486494/ce90b1be-35bb-4b50-ada5-dd09f762290c)
+![marlin boot screen on h32](https://github.com/surepy/surepy.github.io/assets/24486494/21ab1418-696c-4771-a323-095a08329e02)
 
 You did it! Now you're on upstream Merlin with your H32 aquila X2!
 
