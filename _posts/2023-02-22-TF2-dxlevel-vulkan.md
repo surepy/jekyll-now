@@ -7,7 +7,7 @@ title: "TF2: -dxlevel vulkan"
 
 I decided one day to add dxvk and d3d8to9 to tf2, and found out that it comes with at least a **25%** performance gain.
 
-This is a blog post on how I found it out, and thought that this experience was funny enough not to write about.
+This is a blog post on how I found it out, because I thought that this experience was funny enough not to write about.
 
 ## Why did you do this
 
