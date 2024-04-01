@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flashing Latest Merlin on Aquila X2 with H32 chip
+title: Flashing Latest Marlin on Aquila X2 with H32 chip
 ---
 
 It's been a while since I wrote anything, because everything I do is pretty well documented and just requires me to actually read existing documentation, or someone else already wrote an article about it.
@@ -163,7 +163,7 @@ So we just grab the LCD files from the [Example Configuration of Ender-3 V2](htt
 
 This is kind of out of scope for this guide, but you should consider looking into configurations more.
 
-Please check [Merlin's documentation on configuration](https://marlinfw.org/docs/configuration/configuration.html) for more info!
+Please check [Marlin's documentation on configuration](https://marlinfw.org/docs/configuration/configuration.html) for more info!
 
 For example
 
@@ -184,7 +184,7 @@ Grab a random sdcard, and format it to fat32
 ![fat32](https://github.com/surepy/surepy.github.io/assets/24486494/32bb35bf-1eb4-4b54-ac32-df6cc9dd6616)
 
 extract ``DWIN_SET`` folder to sdcard  
-and also firmware.bin from ``<merlin-folder>/.pio/build/HC32F460C_aquila_101/firmware.bin`` to sdcard, in a folder called ``firmware``.
+and also firmware.bin from ``<Marlin-folder>/.pio/build/HC32F460C_aquila_101/firmware.bin`` to sdcard, in a folder called ``firmware``.
 
 ![directory structure](https://github.com/surepy/surepy.github.io/assets/24486494/947a960e-29b5-4ae0-aaa2-3c8470a9e87e)  
 _your directory structure should look like this._
@@ -195,7 +195,7 @@ flash on your display and motherboard and you're good!
 
 ![marlin boot screen on h32](https://github.com/surepy/surepy.github.io/assets/24486494/21ab1418-696c-4771-a323-095a08329e02)
 
-You did it! Now you're on upstream Merlin with your H32 aquila X2!
+You did it! Now you're on upstream Marlin with your H32 aquila X2!
 
 I hope you get to make cool stuff with this!
 
