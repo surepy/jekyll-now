@@ -47,7 +47,8 @@ in ``r/VoxelabAquila``, a post is made
 
 ![shadow's marlin repo](https://github.com/surepy/surepy.github.io/assets/24486494/9decc8cd-acf0-4469-b840-62dd10937e0c)
 
-aw, the prebuilt binaries aren't there anymore... wait.
+~~aw, the prebuilt binaries aren't there anymore... wait.~~  
+EDIT: [looks like they're still there](https://github.com/shadow578/Marlin-H32/releases) but github is hiding the releases???  
 
 ``(now in upstream)``
 
