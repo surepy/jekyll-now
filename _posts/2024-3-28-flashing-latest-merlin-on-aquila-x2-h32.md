@@ -164,14 +164,15 @@ This is kind of out of scope for this guide, but you should consider looking int
 
 Please check [Merlin's documentation on configuration](https://marlinfw.org/docs/configuration/configuration.html) for more info!
 
-![display timeout](https://github.com/surepy/surepy.github.io/assets/24486494/4ffd33f8-735d-4a73-ab7a-3ab9a3084039)  
-_for example, you can make your display time out with this_
+For example
 
 ![manual move](https://github.com/surepy/surepy.github.io/assets/24486494/59cdbd97-cd03-4e01-8b62-29cbfc268e80)  
 _I've reverted this so I can have manual move options on the printer_
 
 ![m92](https://github.com/surepy/surepy.github.io/assets/24486494/2c39b84b-dc49-45d5-ab1c-e5f4dd564af0)  
 _I've also reverted this so M92 gets included_
+
+I recommend you look into stuff like [Linear Advance](https://marlinfw.org/docs/features/lin_advance.html), [Input Shaping](https://marlinfw.org/docs/features/input_shaping.html), etc also.
 
 # Flashing
 
